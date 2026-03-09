@@ -1,0 +1,23 @@
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.function.DoubleToIntFunction;
+
+public class MainClient {
+    public static void main(String[] args) {
+        InetAddress serverAddress = InetAddress.getLocalHost();
+        String message = "Ciao";
+        int port = 3000;
+
+        //scelta primitiva socket e operazione di 'bind' implicita
+        DatagramSocket dSocket = new DatagramSocket();
+        System.out.println("Primitiva socket lato CLIENT realizzata!!!");
+
+        //costruzione del pacchetto dati
+        DatagramPacket outPacket = new DatagramPacket(message.getBytes(), message.length(), serverAddress, port);
+
+        //invio dei dati
+        dSocket.send(outPacket);
+        System.out.println("Pacchetto dati inviato al SERVER!!!");
+    }
+}
