@@ -22,6 +22,13 @@ public class MainClient {
             //invio dei dati
             dSocket.send(outPacket);
             System.out.println("Pacchetto dati inviato al SERVER!!!");
+
+            byte[] bufferIn = new byte[256];
+            DatagramPacket inPacket = new DatagramPacket(bufferIn, bufferIn.length);
+
+            dSocket.receive(inPacket); //METODO BLOCCANTE
+            System.out.println("Ricezione messaggio effettuata" + inPacket);
+
         } catch (SocketException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
