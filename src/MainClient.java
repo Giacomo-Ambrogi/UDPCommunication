@@ -1,23 +1,32 @@
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.io.IOException;
+import java.net.*;
 import java.util.function.DoubleToIntFunction;
 
 public class MainClient {
+
     public static void main(String[] args) {
-        InetAddress serverAddress = InetAddress.getLocalHost();
-        String message = "Ciao";
-        int port = 3000;
+        System.out.println("Inizio CLIENT!!!");
 
-        //scelta primitiva socket e operazione di 'bind' implicita
-        DatagramSocket dSocket = new DatagramSocket();
-        System.out.println("Primitiva socket lato CLIENT realizzata!!!");
+        try {
+            InetAddress serverAddress = InetAddress.getLocalHost();
+            String message = "Ciao";
+            int port = 3000;
 
-        //costruzione del pacchetto dati
-        DatagramPacket outPacket = new DatagramPacket(message.getBytes(), message.length(), serverAddress, port);
+            //scelta primitiva socket e operazione di 'bind' implicita
+            DatagramSocket dSocket = new DatagramSocket();
+            System.out.println("Primitiva socket lato CLIENT realizzata!!!");
 
-        //invio dei dati
-        dSocket.send(outPacket);
-        System.out.println("Pacchetto dati inviato al SERVER!!!");
+            //costruzione del pacchetto dati
+            DatagramPacket outPacket = new DatagramPacket(message.getBytes(), message.length(), serverAddress, port);
+
+            //invio dei dati
+            dSocket.send(outPacket);
+            System.out.println("Pacchetto dati inviato al SERVER!!!");
+        } catch (SocketException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
