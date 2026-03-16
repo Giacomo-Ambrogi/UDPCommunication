@@ -1,8 +1,5 @@
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
+import java.net.*;
 
 public class MainServer {
 
@@ -31,10 +28,12 @@ public class MainServer {
 
             //NO chiusura SERVER perché deve poter sempre ricevere 24/24
 
+        } catch (BindException e) {
+            System.err.println("Porta già in uso!!!");
         } catch (SocketException e) {
-            throw new RuntimeException(e);
+            System.err.println("Errore Socket!!!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println("Errore I/O!!!");
         }
 
     }
