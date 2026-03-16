@@ -27,7 +27,7 @@ public class MainClient {
             DatagramPacket inPacket = new DatagramPacket(bufferIn, bufferIn.length);
 
             dSocket.receive(inPacket); //METODO BLOCCANTE
-            System.out.println("Ricezione messaggio effettuata" + inPacket);
+            System.out.println("Ricezione messaggio effettuata: " + inPacket);
 
         } catch (UnknownHostException e) {
             System.err.println("SERVER non trovato!!!");
