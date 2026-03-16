@@ -16,7 +16,7 @@ public class MainServer {
             DatagramPacket inPacket = new DatagramPacket(bufferIn, bufferIn.length);
 
             dSocket.receive(inPacket); //METODO BLOCCANTE
-            System.out.println("Ricezione messaggio effettuata");
+            System.out.println("Ricezione messaggio effettuata: " + inPacket);
 
             //ECHO
             //Deserializzazione (trasformo i byte in una stringa)
