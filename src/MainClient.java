@@ -9,7 +9,7 @@ public class MainClient {
 
         try {
             InetAddress serverAddress = InetAddress.getLocalHost();
-            String message = "Ciao";
+            String message = "Ciao, ti mando questo messaggio!!!";
             int port = 3000;
 
             //scelta primitiva socket e operazione di 'bind' implicita
