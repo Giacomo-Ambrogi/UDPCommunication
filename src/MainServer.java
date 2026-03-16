@@ -10,7 +10,9 @@ public class MainServer {
             //scelta primitiva socket e operazione di 'bind' esplicita perché ho scelto la porta
             DatagramSocket dSocket = new DatagramSocket(3000);
 
+            //decido in quale parte della RAM mettere le mie istruzioni
             byte[] bufferIn = new byte[256];
+            //leggo tutto il bufferIn con il 'length'
             DatagramPacket inPacket = new DatagramPacket(bufferIn, bufferIn.length);
 
             dSocket.receive(inPacket); //METODO BLOCCANTE
