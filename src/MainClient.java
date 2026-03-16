@@ -29,10 +29,12 @@ public class MainClient {
             dSocket.receive(inPacket); //METODO BLOCCANTE
             System.out.println("Ricezione messaggio effettuata" + inPacket);
 
+        } catch (UnknownHostException e) {
+            System.err.println("SERVER non trovato!!!");
         } catch (SocketException e) {
-            throw new RuntimeException(e);
+            System.err.println("Errore Socket!!!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println("Errore I/O!!!");
         }
 
     }
