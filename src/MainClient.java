@@ -14,10 +14,14 @@ public class MainClient {
     public static final String RESET = "\033[0m";
 
     public static void main(String[] args) {
-        System.out.println("Inizio CLIENT!!!");
 
         try {
+            System.out.println(ROSSO + "Inizio CLIENT UDP!!!" + RESET);
+
+            //recuperiamo l'indirizzo IP del SERVER UDP
             InetAddress serverAddress = InetAddress.getLocalHost();
+            System.out.println(ROSSO + "Indirizzo SERVER trovato!!!" + RESET);
+
             String message = "Ciao, ti mando questo messaggio!!!";
             int port = 3000;
 
@@ -36,8 +40,12 @@ public class MainClient {
             DatagramPacket inPacket = new DatagramPacket(bufferIn, bufferIn.length);
 
             dSocket.receive(inPacket); //METODO BLOCCANTE
-            System.out.println("Ricezione messaggio effettuata: " + inPacket);
+            String messageOut = new String(inPacket.getData(), 0, inPacket.getLength());
+            System.out.println(BLU + "Lettura dati ricevuti dal SERVER!!!" + RESET);
 
+            String messageIn = new String(inPacket.getData(), 0, inPacket.getLength());
+
+            //continua sul codice della prof
         } catch (UnknownHostException e) {
             System.err.println("SERVER non trovato!!!");
         } catch (SocketException e) {
