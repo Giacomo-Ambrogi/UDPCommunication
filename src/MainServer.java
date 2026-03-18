@@ -6,7 +6,7 @@ public class MainServer {
     //colore messaggi SERVER
     public static final String BLU = "\u001B[34m";
     //colore messaggi CLIENT
-    public static final String VERDE = "\033[1;31m";
+    public static final String ROSSO = "\033[1;31m";
     //colore RESET
     public static final String RESET = "\033[0m";
 
@@ -33,7 +33,7 @@ public class MainServer {
                 //ECHO
                 //Deserializzazione (trasformo i byte in una stringa)
                 String messageIn = new String(inPacket.getData(), 0, inPacket.getLength());
-                System.out.println(VERDE + "Messaggio ricevuto dal CLIENT" + clientAddress + ": " + port + "\n\t" + messageIn + RESET);
+                System.out.println(ROSSO + "Messaggio ricevuto dal CLIENT" + clientAddress + ": " + port + "\n\t" + messageIn + RESET);
 
                 String messageOut = "Richiesta ricevuta!!!";
                 DatagramPacket outPacket = new DatagramPacket(messageOut.getBytes(), messageOut.length(), clientAddress, port);

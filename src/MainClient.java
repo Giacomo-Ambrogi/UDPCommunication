@@ -4,6 +4,15 @@ import java.util.function.DoubleToIntFunction;
 
 public class MainClient {
 
+    //colore messaggi SERVER
+    public static final String BLU = "\u001B[34m";
+    //colore messaggi CLIENT
+    public static final String ROSSO = "\033[1;31m";
+    //colore del prompt del gruppo
+    public static final String VERDE_SOTTOLINEATO = "\033[4;32m";
+    //colore RESET
+    public static final String RESET = "\033[0m";
+
     public static void main(String[] args) {
         System.out.println("Inizio CLIENT!!!");
 
